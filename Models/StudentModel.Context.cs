@@ -13,10 +13,10 @@ namespace BaiTap2.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class StudentInformationDataBaseEntities : DbContext
+    public partial class StudentDatabaseEntities : DbContext
     {
-        public StudentInformationDataBaseEntities()
-            : base("name=StudentInformationDataBaseEntities")
+        public StudentDatabaseEntities()
+            : base("name=StudentDatabaseEntities")
         {
         }
     
@@ -25,6 +25,6 @@ namespace BaiTap2.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Student> Students { get; set; }
+        public virtual DbSet<StudentTable> StudentTables { get; set; }
     }
 }

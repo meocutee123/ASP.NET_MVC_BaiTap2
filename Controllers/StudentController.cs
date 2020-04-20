@@ -9,28 +9,20 @@ namespace BaiTap2.Controllers
 {
     public class StudentController : Controller
     {
-        // Registration action
-        public ActionResult Registration()
+        public ActionResult Registration(int id = 0)
         {
-            return View();
-        }
-        // Registration post action
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Registration(StudentModel sm)
-        {
-            if (ModelState.IsValid)
-            {
-
-                using (StudentInformationDataBaseEntities db = new StudentInformationDataBaseEntities())
-                {
-                    db.Students.Add(sm);
-                    db.SaveChanges();
-
-                }
-            }
+            StudentTable sm = new StudentTable( );
             return View(sm);
         }
-
+        [HttpGet]
+        public ActionResult Registration(StudentTable sdModel)
+        {
+            using (StudentDatabaseEntities sdDatabase = new StudentDatabaseEntities())
+            {
+                sdDatabase.StudentTables.Add(sdModel);
+                sdDatabase.SaveChanges();
+            }
+            return View();
+        }
     }
 }
