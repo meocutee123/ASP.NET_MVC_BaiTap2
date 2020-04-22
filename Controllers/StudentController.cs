@@ -9,24 +9,18 @@ namespace BaiTap2.Controllers
 {
     public class StudentController : Controller
     {
-        // GET: STUDENT/REGISTER1
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Index2()
-        {
-            return View();
-        }
-
         //Request
-        [HttpPost]
+
         public ActionResult Register1()
         {
-                String ID = Request["ID"];
-                String Name = Request["Name"];
-                double Marks = Convert.ToDouble(Request["Marks"]);
+                String ID = Request.Form["ID"];
+                String Name = Request.Form["Name"];
+                double Marks = Convert.ToDouble(Request.Form["Marks"]);
                 ViewData["ID"] = ID;
                 ViewData["Name"] = Name;
                 ViewData["Marks"] = Marks;
@@ -42,10 +36,10 @@ namespace BaiTap2.Controllers
         [HttpPost]
         public ActionResult Register2(String ID, String Name, double Marks)
         {
-            ViewData["ID"] = ID;
-            ViewData["Name"] = Name;
-            ViewData["Marks"] = Marks;
-            return View("Index");
+                ViewData["ID"] = ID;
+                ViewData["Name"] = Name;
+                ViewData["Marks"] = Marks;
+                return View("Index");
         }
 
         //Form Collection
