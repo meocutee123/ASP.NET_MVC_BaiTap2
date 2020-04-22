@@ -13,14 +13,17 @@ namespace BaiTap2.Controllers
         {
             return View();
         }
-
-        //Request
-
         public ActionResult Register1()
         {
-                String ID = Request.Form["ID"];
-                String Name = Request.Form["Name"];
-                double Marks = Convert.ToDouble(Request.Form["Marks"]);
+            return View();
+        }
+        //Request
+        [HttpPost]
+        public ActionResult Register1(String ID, String Name, double Marks)
+        {
+                ID = Request.Form["ID"];
+                Name = Request.Form["Name"];
+                Marks = Convert.ToDouble(Request.Form["Marks"]);
                 ViewData["ID"] = ID;
                 ViewData["Name"] = Name;
                 ViewData["Marks"] = Marks;
