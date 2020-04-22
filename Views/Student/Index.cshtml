@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>THÔNG TIN SINH VIÊN ĐÃ ĐĂNG KÝ</h2>
+<strong>Mã số sinh viên: </strong> @ViewData["ID"]<br/>
+<strong>Họ tên:</strong>@ViewData["Name"]<br/>
+<strong>Điểm:</strong>@ViewData["Marks"]<br/>
+<div>
+    @Html.ActionLink("Quay lại", "Register3")
+</div>
